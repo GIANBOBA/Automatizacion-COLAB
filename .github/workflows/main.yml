@@ -25,4 +25,4 @@ jobs:
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
           # Aquí irían otras credenciales si las necesitaras
         run: |
-          run: papermill Prueba_conexión_gsheet.ipynb output.ipynb -p DB_PASSWORD "$DB_PASSWORD"
+           papermill Prueba_conexión_gsheet.ipynb output.ipynb -p DB_PASSWORD "$DB_PASSWORD"
