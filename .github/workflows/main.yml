@@ -1,0 +1,28 @@
+name: Actualizar Google Sheet Diario
+
+on:
+  schedule:
+    - cron: '0 13 * * *' # Se ejecuta a las 13:00 UTC (9 AM hora de Chile)
+  workflow_dispatch: # Permite ejecutarlo manualmente desde la pestaña Actions
+
+jobs:
+  run-notebook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Instalar librerías
+        run: pip install psycopg2-binary gspread gspread-dataframe pandas oauth2client papermill
+
+      - name: Ejecutar el cuaderno de Colab
+        env:
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          # Aquí irían otras credenciales si las necesitaras
+        run: |
+          papermill Prueba_conexión_gsheet.ipynb -p DB_PASSWORD "$DB_PASSWORD"
