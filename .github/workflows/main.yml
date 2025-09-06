@@ -25,4 +25,4 @@ jobs:
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
           # Aquí irían otras credenciales si las necesitaras
         run: |
-           papermill Prueba_conexión_gsheet.ipynb output.ipynb -p DB_PASSWORD "$DB_PASSWORD"
+          pip install psycopg2-binary gspread gspread-dataframe pandas oauth2client papermill ipykernel
