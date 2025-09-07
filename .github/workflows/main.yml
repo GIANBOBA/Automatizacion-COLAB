@@ -25,4 +25,4 @@ jobs:
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
         run: |
-          papermill Prueba_conexión_gsheet.ipynb
+          papermill Prueba_conexión_gsheet.ipynb output.ipynb
