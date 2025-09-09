@@ -2,7 +2,7 @@ name: Actualizar Google Sheet Diario
 
 on:
   schedule:
-    - cron: '0 13 * * *' # Se ejecuta a las 13:00 UTC (9 AM hora de Chile)
+    - cron: '0 12 * * *' # Se ejecuta a las 13:00 UTC (9 AM hora de Chile)
   workflow_dispatch: # Permite ejecutarlo manualmente
 
 jobs:
